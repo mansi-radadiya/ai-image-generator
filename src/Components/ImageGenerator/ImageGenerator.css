@@ -1,0 +1,135 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    gap: 30px;
+}
+
+.header{
+    font-size: 60px;
+    font-weight: 700;
+    /* padding-bottom: 10px; */
+}
+
+.header-1{
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(252, 238, 238);
+}
+
+.header span{
+    color: rgb(167, 59, 59);
+    /* text-shadow: 0 2px 3px #f76b6b, 
+            1px 3px 4px #b45c5c, 
+            1px 5px 3px #bd6262, 
+            2px 8px 4px #be6f6f,
+            2px 11px 4px #f5b7b7; */
+
+    text-shadow: 1px 1px 2px #333,
+            2px 2px 3px #555,  
+            4px 4px 5px #777, 
+            6px 6px 7px #999; 
+}
+
+.imageLoading{
+    display: flex;
+    flex-direction: column;
+}
+
+.imageLoading img{
+    width: 512px;
+    /* width: 500px; */
+}
+
+.searchBox{
+    display: flex;
+    width: 1000px;
+    height: 95px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    background: #392d52b2;
+}
+
+.searchInput{
+    width: 600px;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.searchInput::placeholder{
+    color: #999;
+}
+
+.generateButton{
+     border: none;
+     outline: none;
+     cursor: pointer;
+     border-radius: 50px;
+     color: rgb(211, 203, 206);
+     background-color: #020232;
+     height: 100%;
+     width: 300px;
+     font-size: 25px;
+     overflow: hidden;
+     padding: 16px 50px;
+     position: relative;
+     text-decoration: none;
+     transition: .8s transform ease-in-out;
+     z-index: 0;
+   
+     &::after {
+       background-color: rgba(90, 12, 38, 0.568);
+       border-radius: 50px;
+       content: '';
+       border: 2px solid white;
+       height: 100%;
+       width: 100%;
+       position: absolute;
+       left: 0;
+       top: 0;
+       transform: translate(-70%, 0) rotate(-10deg);
+       transform-origin: top left;
+       transition: .8s transform ease-out;
+       will-change: transform;
+       z-index: -1;
+     }
+   
+     &:hover::after {
+       transform: translate(0, 0);
+     }
+   
+     &:hover {
+       transform: scale(1.05);
+     }
+}
+
+.loadingBar{
+    width: 0px;
+    height: 8px;
+    background: rgb(129, 48, 48);
+}
+
+.loadingText{
+    font-size: 18px;
+}
+
+.loadingBarFull{
+    width: 512px;
+    height: 8px;
+    background: rgb(129, 48, 48);
+    transition: 15s;
+}
+
+.displayNone{
+    display: none;
+}

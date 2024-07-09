@@ -25,9 +25,10 @@ function ImageGenerator() {
           "User-Agent": "Chrome",
         },
         body: JSON.stringify({
-          prompt: `${inputRef?.current?.value}`,
-          n: 1,
-          size: "512x512",
+          "model": "dall-e-3",
+          "prompt": `${inputRef?.current?.value}`,
+          "n": 1,
+          "size": "1024x1024",
         }),
       }
     );

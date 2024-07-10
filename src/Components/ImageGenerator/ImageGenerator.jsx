@@ -15,33 +15,47 @@ function ImageGenerator() {
 
     setLoading(true);
 
-    const response = await fetch("https://api.openai.com/v1/images/generations",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer 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",
-          "User-Agent": "Chrome",
-        },
-        body: JSON.stringify({
-          "model": "dall-e-3",
-          "prompt": `${inputRef?.current?.value}`,
-          "n": 1,
-          "size": "1024x1024",
-        }),
-      }
-    );
+    // const response = await fetch("https://api.openai.com/v1/images/generations",
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization:
+    //         "Bearer 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",
+    //       "User-Agent": "Chrome",
+    //     },
+    //     body: JSON.stringify({
+    //       "model": "dall-e-2",
+    //       "prompt": `${inputRef?.current?.value}`,
+    //       "n": 1,
+    //       "size": "1024x1024",
+    //     }),
+    //   }
+    // );
 
-    let data = await response.json();
+    // let data = await response.json();
 
-    if (!data) {
-      // Handle API response error (display error message)
-      console.error("Error fetching image data");
-      return;
-    }
+    // if (!data) {
+    //   // Handle API response error (display error message)
+    //   console.error("Error fetching image data");
+    //   return;
+    // }
 
-    console.log(data);
+    // console.log(data);
+
+    const resp = await fetch('https://api.deepai.org/api/text2img', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'api-key': '08b329c6-e057-442d-b54d-7849b736dd4c'
+      },
+      body: JSON.stringify({
+          text: "Anime Girl in a Imaginary world",
+      })
+  });
+  
+  const data = await resp.json();
+  console.log(data);
 
     let data_array = data.data;
     setImageUrl(data_array[0]?.url);
